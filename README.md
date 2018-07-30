@@ -1,0 +1,3 @@
+# day03
+这是一个山东科技大学软件工程专业小学期ssm+mybatis实践教学的一个教程
+主要讲的是Spring的使用以及传输数据提交 ajax和jquery
