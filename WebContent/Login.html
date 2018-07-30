@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/jquery-1.12.2.min.js">
+</script>
+<title>Login</title>
+
+</head>
+<body>
+<form action="" onsubmit = "return false">
+	用户名:<input type ="text" name = "name" /><br>
+	密码：<input type = "password" name = "pwd" /><br>
+	<input type="submit" value = "Login">
+</form>
+<script type="text/javascript">
+	//定义表单的submit事件
+	$("form").submit(function(){
+		$.ajax({
+			type:"post",
+			url:"login",
+			data: $("form").serialize(),  //指定向后台提交的参数对表单进行了序列化操作自动得到的
+			dataType:"json", // 指定服务端响应的数据库的格式
+			success:function(backdata){
+				//{"code" :1}
+				if(backdata.code == 1){
+					window.location.href = "index.html";
+				}
+				else{
+					alert("用户名或者密码不对");
+				}
+				
+				
+			}
+		})
+	})
+
+</script>
+</body>
+</html>

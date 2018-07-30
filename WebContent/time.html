@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AjaxTime</title>
+<script type="text/javascript" src="js/jquery-1.12.2.min.js">
+</script>
+</head>
+<body>
+<p id = "pid" name = "time" value = "HHMMSS">ShowTime</p>
+<p id = "pid2" name = "time2" value = "gg">showTime2</p>
+<input id = "iname" type="text" name="name" />
+<button onclick="btnclick()">click</button>
+<script type="text/javascript" >
+	function btnclick(){
+		//#是按照id获取表单
+		//$("#pid").load("AjaxTime");
+		$.ajax({
+			type:"post", //提交方式
+			url:"AjaxTime", //请求返回
+			success:function(backdata){ //ajax请求成功backdata表示通过相应返回的数据
+				$("#pid").html(backdata);
+			    $("#pid2").html(backdata);
+			}
+		})		
+		
+	}
+</script>
+</body>
+</html>

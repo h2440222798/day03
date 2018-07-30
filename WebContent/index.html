@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<script type="text/javascript" src="js/jquery-1.12.2.min.js">
+</script>
+</head>
+<body>
+欢迎访问
+	<p id = "pid" >我是魔鬼！</p>
+	<table width = "200" border = "1">
+		<tr>
+			<td>name</td>
+			<td>age</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+	   //跳转是无条件的，写了就能跳
+	   // window.location.href = "Login.html";
+	    $("#pid").append("的化身！");
+		$(function(){
+			$.ajax({
+				type:"post",
+				url:"ListServelet",
+				dataType:"json",
+				success:function(data){
+					$(data).each(function() {
+						var html = "<tr><td>" + this.name + "</td><td>" + this.age + "</td></tr>";
+						$("table").append($(html));
+					})
+				}
+				
+			})
+		})
+		
+	</script>
+</body>
+</html>
